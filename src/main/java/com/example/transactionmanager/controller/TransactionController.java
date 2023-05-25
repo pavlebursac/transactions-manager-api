@@ -19,14 +19,14 @@ public class TransactionController {
 
   @GetMapping("/costs-blocking/{userId}")
   public List<ResponseDTO> getCostsBlocking(
-      @Parameter(name = "user id", description = "example: 4ef83cc2-18f5-4e32-9064-cfe3e05572c0")
+      @Parameter(name = "userId", description = "example: 4ef83cc2-18f5-4e32-9064-cfe3e05572c0")
       @PathVariable("userId") String userId) {
     return transactionService.getPreparedTransactionsData_Blocking(userId);
   }
 
   @GetMapping("/costs-non-blocking/{userId}")
   public Mono<List<ResponseDTO>> getCostsNonBlocking(
-      @Parameter(name = "user id", description = "example: 4ef83cc2-18f5-4e32-9064-cfe3e05572c0")
+      @Parameter(name = "userId", description = "example: 4ef83cc2-18f5-4e32-9064-cfe3e05572c0")
       @PathVariable("userId") String userId) {
     return transactionService
         .getPreparedTransactionsData_NonBlocking(userId);
